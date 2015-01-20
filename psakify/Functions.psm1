@@ -131,7 +131,7 @@ function Get-TestTypesForPath($path, $basePath) {
 		
 		$specflow = Get-PackageInfo $path "SpecFlow"
 		if ($specflow.Exists) {
-			New-Item $($specflow.Path)\tools\specflow.exe.config -Type file -Force -Value "<?xml version=""1.0"" encoding=""utf-8"" ?> <configuration> <startup> <supportedRuntime version=""v4.0.30319"" /> </startup> </configuration>" | Out-Null
+			New-Item "$($specflow.Path)\tools\specflow.exe.config" -Type file -Force -Value "<?xml version=""1.0"" encoding=""utf-8"" ?> <configuration> <startup> <supportedRuntime version=""v4.0.30319"" /> </startup> </configuration>" | Out-Null
 			$types += New-Object PSObject -Property @{
 				Name = "SpecFlow";
 				RunnerExecutable = "$nunitRunnerPath\tools\nunit-console.exe";
