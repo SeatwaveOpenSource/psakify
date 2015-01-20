@@ -63,8 +63,6 @@ Depends on [Clean](#clean)
 ### Create7zip
 Creates a zip file of everything inside the $outputPath.
 
-Requires 7zip to be installed and added to the Path variable
-
 ### DeployAzure
 Deploys an Azure web or worker role.
 
@@ -104,13 +102,14 @@ Creates an Octopus NuGet package and pushes it to the repository.
   * $octopusPackageSource: Url of your feed
   * $octopusPackageSourceApiKey
 
+The package version is determined from the current date formatted as `yyyy.MM.dd.HHmmss`, optionally suffixed by "-dev" if the $prereleaseVersion is not null or empty
+
 Depends on [Test](#test)
 
 ### Pack
 Creates a NuGet package from $basePath\$projectName\$projectName.csproj
 
-The version will be read from $basePath\$projectName\Properties\AssemblyInfo.cs
-If the version is overridden, it will overwrite the value in the AssemblyInfo.cs file
+The package version is determined by calling [Resolve-PackageVersion](#resolve-package-version) passing it $version and $prereleaseVersion
 
 ### Push
 Pushes all NuGet packages (*.nupkg) found in the $buildsPath.
@@ -174,7 +173,8 @@ The package includes the following functions, which are used by the predefined t
 * Remove-Directory: Recursively deletes a path silently 
 * Get-AssemblyFileVersion: Accepts a path to an AssemblyInfo.cs and gets the version
 * Set-Version: Accepts a project path and a version. If no version is specified, it will read it from AssemblyInfo.cs otherwise it will write it to AssemblyInfo.cs
-* Resolve-PackageVersion: Accepts a string, if not empty just returns it, else it will create a time stamped version
+* <a name="resolve-package-version">Resolve-PackageVersion</a>: Accepts piped input and a string. If the string is empty it just returns the piped input, otherwise it
+resolves the pre-release version from the given string by replacing "{date}" with the current time stamp formatted as `yyMMddHHmm`.
 * Import-Scripts: Accepts an array of predefined scripts. The list of available scripts is:
   * properties
   * clean
