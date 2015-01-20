@@ -5,14 +5,13 @@
 		<version>$version$</version>
 		<authors>Shayne van Asperen, Kenneth Truyers</authors>
 		<owners>Shayne van Asperen</owners>
+		<licenseUrl>https://github.com/shaynevanasperen/psakify/blob/master/LICENSE</licenseUrl>
 		<projectUrl>https://github.com/shaynevanasperen/psakify</projectUrl>
 		<iconUrl>http://s28.postimg.org/nf7lpcg89/Icon_dialog_build.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>Convention based build automation using psake</summary>
 		<description>
-			This package provides PowerShell scripts to automatically compile, package, test and deploy your code based on a set of conventions. It is based on psake and
-			consists of a set of psake tasks written in Powershell. There is a predefined psake properties block and a number of predefined tasks as well as some useful
-			functions which you can use to help create your own custom tasks.
+			This package provides PowerShell scripts to automatically compile, package, test and deploy your code based on a set of conventions. It is based on psake and consists of a set of psake tasks written in Powershell. There is a predefined psake properties block and a number of predefined tasks as well as some useful functions which you can use to help create your own custom tasks.
 		</description>
 		<language>en-US</language>
 		<tags>build powershell psake convention clean, compile, test, pack, push, octopack, octopus, deploy, azure, grunt, chutzpah, 7zip, ilmerge, mspec nunit, specflow, nuget</tags>
