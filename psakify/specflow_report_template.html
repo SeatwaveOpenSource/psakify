@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SpecFlow report</title>
+    <style>
+        html, body { min-height: 100%; padding: 0; margin: 0; }
+        header { height: 50px; }
+        iframe { width: 100%; height: 90vh; height: -moz-calc(100vh - 60px); height: -webkit-calc(100vh - 60px); height: -o-calc(100vh - 60px); height: calc(100vh - 60px); border: 0; }
+        ul { width: 100%; background-color: #f6f6f6; margin: 0; padding: 0; }
+        li { display: inline-block; width: 150px; padding: 15px 20px; cursor: pointer; }
+        li:hover, li.active { background-color: #ccc; color: #fff; }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>%links%</ul>
+    </header>
+    <iframe></iframe>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+        (function ($) {
+            var setSource = function (li) {
+                $("iframe").attr("src", "specresult_" + li.data("configuration") + ".html");
+                $("li").removeClass("active");
+                li.addClass("active");
+            }
+
+            $("li").on("click", function () { setSource($(this)); });
+            setSource($("li").first());
+        })(jQuery);
+    </script>
+</body>
+</html>
