@@ -37,7 +37,8 @@ task test -depends compile {
 						$configurations | foreach {
 							Start-Job -ScriptBlock {
 								param($psakePath, $type, $buildsPath, $configuration, $basePath, $projectTest)
-									
+								
+								Set-Location $basePath
 								Import-Module "$psakePath\tools\psake.psm1";
 								try {
 									exec { & $type.RunnerExecutable /labels /out=$buildsPath\nunit_$configuration.txt /xml:$buildsPath\nunit_$configuration.xml /nologo /config:$configuration $basePath\$($projectTest.Path)\bin\$configuration\$($projectTest.Name).dll }
