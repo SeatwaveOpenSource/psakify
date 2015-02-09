@@ -209,8 +209,8 @@ function Get-IsLocalTest($configuration, $path) {
 
 function Set-ConfigValue($key, $value, $path) {
 	$xml = [xml](Get-Content $path)
-	$node = $xml.Configuration.appSettings.Role | Where { $_.key -eq $key }
-    $node.Value = $value
+	$node = $xml.Configuration.appSettings.add | Where { $_.key -eq $key }
+    $node.value = $value
 	$xml.Save($path)
 }
 
