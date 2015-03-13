@@ -29,4 +29,5 @@ properties {
 	$azurePublishSettingsFile = $env:PSAKE_AZURE_PUBLISH_SETTINGS_FILE
 	$azureSlot = $env:PSAKE_AZURE_SLOT
 	$azureSwapAfterDeploy = $env:PSAKE_AZURE_SWAP_AFTER_DEPLOY
+	$gruntEnvironment = $env:PSAKE_GRUNT_ENVIRONMENT
 }
